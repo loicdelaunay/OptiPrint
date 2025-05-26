@@ -3,6 +3,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-key="pageTitle">OptiPrint - Optimized Mobile Printing</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" data-key="metaDescription" content="OptiPrint revolutionizes mobile printing with optimized black and white documents. Save ink, save paper, and get crisp prints every time with our smart printing app.">
+    <meta name="keywords" content="mobile printing, print optimization, black and white printing, ink saving, document printing, mobile app, Android printing">
+    <meta name="author" content="OptiPrint Team">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="en">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" data-key="ogUrl" content="https://loicdelaunay.github.io/OptiPrint/">
+    <meta property="og:title" data-key="ogTitle" content="OptiPrint - Optimized Mobile Printing App">
+    <meta property="og:description" data-key="ogDescription" content="Revolutionary mobile printing app that optimizes documents for perfect black and white prints. Save ink and get crisp results every time.">
+    <meta property="og:image" content="https://loicdelaunay.github.io/OptiPrint/assets/ban_1280x640.jpg">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="640">
+    <meta property="og:image:alt" content="OptiPrint banner showing print quality optimization">
+    <meta property="og:site_name" content="OptiPrint">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Card -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" data-key="twitterUrl" content="https://loicdelaunay.github.io/OptiPrint/">
+    <meta property="twitter:title" data-key="twitterTitle" content="OptiPrint - Optimized Mobile Printing App">
+    <meta property="twitter:description" data-key="twitterDescription" content="Revolutionary mobile printing app that optimizes documents for perfect black and white prints. Save ink and get crisp results every time.">
+    <meta property="twitter:image" content="https://loicdelaunay.github.io/OptiPrint/assets/ban_1280x640.jpg">
+    <meta property="twitter:image:alt" content="OptiPrint banner showing print quality optimization">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://loicdelaunay.github.io/OptiPrint/">
+    
+    <!-- Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/logo.jpg">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/logo.jpg">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/logo.jpg">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
@@ -48,26 +94,68 @@
         }
         .expressive-gradient-text {
             background: linear-gradient(to right, #7c3aed, #c026d3); /* Violet to Fuchsia */
+            background-clip: text; /* Standard property */
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        #languageSelector {
-            background-color: #6d28d9;
+        .theme-toggle, .language-toggle {
+            background-color: rgba(255, 255, 255, 0.1);
             color: white;
-            padding: 0.5rem 0.75rem;
-            border-radius: 0.375rem;
-            border: none;
-            font-size: 0.875rem;
-            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.5rem;
+            border-radius: 0.5rem;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 2.5rem;
+            height: 2.5rem;
         }
-        #languageSelector:hover {
-            background-color: #5b21b6;
+        .theme-toggle:hover, .language-toggle:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
         }
-        #languageSelector option {
-            background-color: white;
-            color: #3730a3;
+        .language-toggle {
+            font-size: 1.2rem;
+            font-weight: normal;
+        }
+        
+        /* Dark theme styles */
+        body.dark-theme {
+            background-color: #1a1a2e;
+            color: #eee;
+        }
+        body.dark-theme .hero-bg {
+            background-color: #16213e;
+        }
+        body.dark-theme .card {
+            background-color: #2a2d3e;
+            color: #eee;
+        }
+        body.dark-theme .section-title {
+            color: #a78bfa;
+        }
+        body.dark-theme .link-custom {
+            color: #c4b5fd;
+        }
+        body.dark-theme .link-custom:hover {
+            color: #a78bfa;
+        }
+        body.dark-theme #features {
+            background-color: #16213e !important;
+        }
+        body.dark-theme #join {
+            background-color: #1f2937 !important;
+        }
+        body.dark-theme .text-gray-600 {
+            color: #d1d5db !important;
+        }
+        body.dark-theme .text-gray-700 {
+            color: #e5e7eb !important;
+        }
+        body.dark-theme .carousel-slide img {
+            background-color: #374151;
         }
 
         /* Carousel Styles */
@@ -154,56 +242,59 @@
                 <a href="#join" class="ml-4 btn-primary hover:bg-violet-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105" data-key="navJoinDownload">
                     Join Beta
                 </a>
-                <div class="ml-4">
-                    <select id="languageSelector" aria-label="Select language">
-                        <option value="en">English</option>
-                        <option value="fr">Français</option>
-                    </select>
+                <div class="ml-4 flex items-center space-x-2">
+                    <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+                        <span class="material-icons-outlined">light_mode</span>
+                    </button>
+                    <button id="languageToggle" class="language-toggle" aria-label="Switch language" title="Switch language">
+                        🇺🇸
+                    </button>
                 </div>
             </nav>
         </div>
     </header>
 
-    <section class="hero-bg text-white py-12 md:py-20">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">
-                <span data-key="heroTitle1">OptiPrint: Mobile printing </span> <span class="expressive-gradient-text bg-clip-text text-transparent bg-gradient-to-r from-purple-300 via-pink-300 to-orange-300" data-key="heroTitle2">reinvented</span>.
-            </h2>
-            <p class="text-lg md:text-xl mb-8 text-violet-200 max-w-2xl mx-auto" data-key="heroSubtitle">
-                Effortlessly print documents in optimized black and white from your mobile. Save ink, save paper!
-            </p>
-            <a href="#join" class="btn-primary text-lg font-semibold py-3 px-8 rounded-lg shadow-xl transition duration-300 ease-in-out transform hover:scale-105" data-key="heroCTA">
-                Discover OptiPrint
-            </a>
-        </div>
-    </section>
+    <main role="main">
+        <section class="hero-bg text-white py-12 md:py-20" itemscope itemtype="https://schema.org/SoftwareApplication">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-5xl font-extrabold mb-4 leading-tight" itemprop="name">
+                    <span data-key="heroTitle1">OptiPrint: Mobile printing </span> <span class="expressive-gradient-text bg-clip-text text-transparent bg-gradient-to-r from-purple-300 via-pink-300 to-orange-300" data-key="heroTitle2">reinvented</span>.
+                </h1>
+                <p class="text-lg md:text-xl mb-8 text-violet-200 max-w-2xl mx-auto" data-key="heroSubtitle" itemprop="description">
+                    Effortlessly print documents in optimized black and white from your mobile. Save ink, save paper!
+                </p>
+                <a href="#join" class="btn-primary text-lg font-semibold py-3 px-8 rounded-lg shadow-xl transition duration-300 ease-in-out transform hover:scale-105" data-key="heroCTA" aria-label="Discover OptiPrint features and join beta">
+                    Discover OptiPrint
+                </a>
+            </div>
+        </section>
 
-    <section class="py-12 bg-violet-50">
-        <div class="container mx-auto px-6">
-            <h3 class="text-3xl font-bold text-center section-title mb-10" data-key="bannerTitle">Visualize the OptiPrint Difference</h3>
-            <img src="assets/ban_1280x640.jpg" alt="OptiPrint banner showing print quality" class="rounded-xl shadow-2xl mx-auto max-w-4xl w-full" onerror="this.src='https://placehold.co/1280x640/e9d5ff/4c1d95?text=OptiPrint+Banner'; this.onerror=null;" data-key-alt="altBanner">
-            <p class="text-center text-violet-700 mt-4 text-sm italic" data-key="bannerCaption">Perfect black & white printing in one click – no more wasted ink or unreadable pages.</p>
-        </div>
-    </section>
+        <section class="py-12 bg-violet-50" itemscope itemtype="https://schema.org/ImageObject">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center section-title mb-10" data-key="bannerTitle">Visualize the OptiPrint Difference</h2>
+                <img src="assets/ban_1280x640.jpg" alt="OptiPrint banner showing print quality" class="rounded-xl shadow-2xl mx-auto max-w-4xl w-full" onerror="this.src='https://placehold.co/1280x640/e9d5ff/4c1d95?text=OptiPrint+Banner'; this.onerror=null;" data-key-alt="altBanner" itemprop="contentUrl" loading="lazy">
+                <p class="text-center text-violet-700 mt-4 text-sm italic" data-key="bannerCaption" itemprop="caption">Perfect black & white printing in one click – no more wasted ink or unreadable pages.</p>
+            </div>
+        </section>
 
-    <section id="screenshots" class="py-12 md:py-20">
-        <div class="container mx-auto px-6">
-            <h3 class="text-3xl font-bold text-center section-title mb-12" data-key="screenshotsTitle">Discover the App in Pictures</h3>
-            <div class="carousel-container">
-                <div class="carousel-slides">
-                    <div class="carousel-slide">
-                        <img src="assets/screenshot_1.jpg" alt="App Screenshot 1" data-key-alt="altScreenshot1" onerror="this.src='https://placehold.co/800x450/c4b5fd/4c1d95?text=App+Screenshot+1'; this.onerror=null;">
+        <section id="screenshots" class="py-12 md:py-20" itemscope itemtype="https://schema.org/ImageGallery">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center section-title mb-12" data-key="screenshotsTitle">Discover the App in Pictures</h2>
+                <div class="carousel-container">
+                    <div class="carousel-slides">
+                        <div class="carousel-slide" itemscope itemtype="https://schema.org/ImageObject">
+                            <img src="assets/screenshot_1.jpg" alt="App Screenshot 1" data-key-alt="altScreenshot1" onerror="this.src='https://placehold.co/800x450/c4b5fd/4c1d95?text=App+Screenshot+1'; this.onerror=null;" itemprop="contentUrl" loading="lazy">
+                        </div>
+                        <div class="carousel-slide" itemscope itemtype="https://schema.org/ImageObject">
+                            <img src="assets/screenshot_2.jpg" alt="App Screenshot 2" data-key-alt="altScreenshot2" onerror="this.src='https://placehold.co/800x450/a78bfa/3730a3?text=App+Screenshot+2'; this.onerror=null;" itemprop="contentUrl" loading="lazy">
+                        </div>
+                        <div class="carousel-slide" itemscope itemtype="https://schema.org/ImageObject">
+                            <img src="assets/screenshot_3.jpg" alt="App Screenshot 3" data-key-alt="altScreenshot3" onerror="this.src='https://placehold.co/800x450/8b5cf6/ffffff?text=App+Screenshot+3'; this.onerror=null;" itemprop="contentUrl" loading="lazy">
+                        </div>
+                         <div class="carousel-slide" itemscope itemtype="https://schema.org/ImageObject">
+                            <img src="assets/screenshot_4.jpg" alt="App Screenshot 4" data-key-alt="altScreenshot4" onerror="this.src='https://placehold.co/800x450/7c3aed/ffffff?text=App+Screenshot+4'; this.onerror=null;" itemprop="contentUrl" loading="lazy">
+                        </div>
                     </div>
-                    <div class="carousel-slide">
-                        <img src="assets/screenshot_2.jpg" alt="App Screenshot 2" data-key-alt="altScreenshot2" onerror="this.src='https://placehold.co/800x450/a78bfa/3730a3?text=App+Screenshot+2'; this.onerror=null;">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="assets/screenshot_3.jpg" alt="App Screenshot 3" data-key-alt="altScreenshot3" onerror="this.src='https://placehold.co/800x450/8b5cf6/ffffff?text=App+Screenshot+3'; this.onerror=null;">
-                    </div>
-                     <div class="carousel-slide">
-                        <img src="assets/screenshot_4.jpg" alt="App Screenshot 4" data-key-alt="altScreenshot4" onerror="this.src='https://placehold.co/800x450/7c3aed/ffffff?text=App+Screenshot+4'; this.onerror=null;">
-                    </div>
-                </div>
                 <button class="carousel-button prev" aria-label="Previous slide">
                     <span class="material-icons-outlined">arrow_back_ios</span>
                 </button>
@@ -216,59 +307,61 @@
         </div>
     </section>
 
-    <section id="features" class="py-12 md:py-20 bg-violet-50"> <div class="container mx-auto px-6">
-            <h3 class="text-3xl font-bold text-center section-title mb-12" data-key="featuresTitle">Why Choose OptiPrint?</h3>
-            <div class="grid md:grid-cols-3 gap-8 text-center">
-                <div class="card p-8 transform hover:scale-105 transition-transform duration-300">
-                    <span class="material-icons-outlined text-5xl text-violet-600 mb-4">quality</span>
-                    <h4 class="text-xl font-semibold text-violet-800 mb-2" data-key="feature1Title">Superior Quality</h4>
-                    <p class="text-gray-600" data-key="feature1Desc">Get crisp, readable black and white prints every time.</p>
-                </div>
-                <div class="card p-8 transform hover:scale-105 transition-transform duration-300">
-                    <span class="material-icons-outlined text-5xl text-violet-600 mb-4">opacity</span>
-                    <h4 class="text-xl font-semibold text-violet-800 mb-2" data-key="feature2Title">Ink Saving</h4>
-                    <p class="text-gray-600" data-key="feature2Desc">Significantly reduce your ink consumption with our smart optimization.</p>
-                </div>
-                <div class="card p-8 transform hover:scale-105 transition-transform duration-300">
-                    <span class="material-icons-outlined text-5xl text-violet-600 mb-4">ads_click</span>
-                    <h4 class="text-xl font-semibold text-violet-800 mb-2" data-key="feature3Title">Simplified Use</h4>
-                    <p class="text-gray-600" data-key="feature3Desc">Print in a single click. It's that simple!</p>
+        <section id="features" class="py-12 md:py-20 bg-violet-50" itemscope itemtype="https://schema.org/ItemList"> 
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center section-title mb-12" data-key="featuresTitle">Why Choose OptiPrint?</h2>
+                <div class="grid md:grid-cols-3 gap-8 text-center">
+                    <article class="card p-8 transform hover:scale-105 transition-transform duration-300" itemscope itemtype="https://schema.org/Thing" itemprop="itemListElement">
+                        <span class="material-icons-outlined text-5xl text-violet-600 mb-4" aria-hidden="true">quality</span>
+                        <h3 class="text-xl font-semibold text-violet-800 mb-2" data-key="feature1Title" itemprop="name">Superior Quality</h3>
+                        <p class="text-gray-600" data-key="feature1Desc" itemprop="description">Get crisp, readable black and white prints every time.</p>
+                    </article>
+                    <article class="card p-8 transform hover:scale-105 transition-transform duration-300" itemscope itemtype="https://schema.org/Thing" itemprop="itemListElement">
+                        <span class="material-icons-outlined text-5xl text-violet-600 mb-4" aria-hidden="true">opacity</span>
+                        <h3 class="text-xl font-semibold text-violet-800 mb-2" data-key="feature2Title" itemprop="name">Ink Saving</h3>
+                        <p class="text-gray-600" data-key="feature2Desc" itemprop="description">Significantly reduce your ink consumption with our smart optimization.</p>
+                    </article>
+                    <article class="card p-8 transform hover:scale-105 transition-transform duration-300" itemscope itemtype="https://schema.org/Thing" itemprop="itemListElement">
+                        <span class="material-icons-outlined text-5xl text-violet-600 mb-4" aria-hidden="true">ads_click</span>
+                        <h3 class="text-xl font-semibold text-violet-800 mb-2" data-key="feature3Title" itemprop="name">Simplified Use</h3>
+                        <p class="text-gray-600" data-key="feature3Desc" itemprop="description">Print in a single click. It's that simple!</p>
+                    </article>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="join" class="py-12 md:py-20 bg-violet-100">
-        <div class="container mx-auto px-6">
-            <h3 class="text-3xl font-bold text-center section-title mb-12" data-key="joinTitle">Join the OptiPrint Adventure!</h3>
-            <div class="max-w-2xl mx-auto">
-                <div class="card p-8">
-                    <h4 class="text-2xl font-semibold text-violet-800 mb-4" data-key="joinTesterTitle">Join the Closed Beta:</h4>
-                    <ol class="list-decimal list-inside space-y-4 text-gray-700">
-                        <li data-key="joinTesterStep1">
-                            <strong>Join our tester group:</strong><br>
-                            <a href="https://groups.google.com/g/optiprint-testers" target="_blank" rel="noopener noreferrer" class="link-custom">
-                                groups.google.com/g/optiprint-testers
-                            </a>
-                        </li>
-                        <li data-key="joinTesterStep2">
-                            <strong>Access the test version:</strong><br>
-                            <a href="https://play.google.com/apps/testing/com.loicdelaunay.optiprint" target="_blank" rel="noopener noreferrer" class="link-custom">
-                                play.google.com/apps/testing/com.loicdelaunay.optiprint
-                            </a>
-                        </li>
-                        <li data-key="joinTesterStep3">
-                            <strong>Download from Play Store:</strong><br>
-                            <a href="https://play.google.com/store/apps/details?id=com.loicdelaunay.optiprint" target="_blank" rel="noopener noreferrer" class="inline-block btn-primary text-base font-semibold py-2 px-6 rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105 mt-2">
-                                <span class="material-icons-outlined inline-block align-middle mr-2 text-sm">shop</span>
-                                <span data-key="joinDownloadLink">View on Play Store</span>
-                            </a>
-                        </li>
-                    </ol>
+        <section id="join" class="py-12 md:py-20 bg-violet-100" itemscope itemtype="https://schema.org/WebPageElement">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center section-title mb-12" data-key="joinTitle">Join the OptiPrint Adventure!</h2>
+                <div class="max-w-2xl mx-auto">
+                    <div class="card p-8">
+                        <h3 class="text-2xl font-semibold text-violet-800 mb-4" data-key="joinTesterTitle">Join the Closed Beta:</h3>
+                        <ol class="list-decimal list-inside space-y-4 text-gray-700">
+                            <li>
+                                <strong><span data-key="joinTesterStep1">Join our tester group:</span></strong><br>
+                                <a href="https://groups.google.com/g/optiprint-testers" target="_blank" rel="noopener noreferrer" class="link-custom" aria-label="Join OptiPrint tester group on Google Groups">
+                                    groups.google.com/g/optiprint-testers
+                                </a>
+                            </li>
+                            <li>
+                                <strong><span data-key="joinTesterStep2">Access the test version:</span></strong><br>
+                                <a href="https://play.google.com/apps/testing/com.loicdelaunay.optiprint" target="_blank" rel="noopener noreferrer" class="link-custom" aria-label="Access OptiPrint test version on Google Play">
+                                    play.google.com/apps/testing/com.loicdelaunay.optiprint
+                                </a>
+                            </li>
+                            <li>
+                                <strong><span data-key="joinTesterStep3">Download from Play Store:</span></strong><br>
+                                <a href="https://play.google.com/store/apps/details?id=com.loicdelaunay.optiprint" target="_blank" rel="noopener noreferrer" class="inline-block btn-primary text-base font-semibold py-2 px-6 rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105 mt-2" aria-label="Download OptiPrint from Google Play Store">
+                                    <span class="material-icons-outlined inline-block align-middle mr-2 text-sm" aria-hidden="true">shop</span>
+                                    <span data-key="joinDownloadLink">View on Play Store</span>
+                                </a>
+                            </li>
+                        </ol>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <footer class="bg-violet-800 text-violet-200 py-8 text-center">
         <div class="container mx-auto px-6">
@@ -277,11 +370,65 @@
         </div>
     </footer>
 
+    <!-- Structured Data - JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "OptiPrint",
+        "applicationCategory": "ProductivityApplication",
+        "operatingSystem": "Android",
+        "description": "OptiPrint is a revolutionary mobile printing application that optimizes documents for perfect black and white prints, saving ink and ensuring crisp, readable results every time.",
+        "url": "https://loicdelaunay.github.io/OptiPrint/",
+        "downloadUrl": "https://play.google.com/store/apps/details?id=com.loicdelaunay.optiprint",
+        "softwareVersion": "1.0",
+        "datePublished": "2024-12-01",
+        "author": {
+            "@type": "Organization",
+            "name": "OptiPrint Team"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "OptiPrint",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://loicdelaunay.github.io/OptiPrint/assets/logo.jpg"
+            }
+        },
+        "screenshot": [
+            "https://loicdelaunay.github.io/OptiPrint/assets/screenshot_1.jpg",
+            "https://loicdelaunay.github.io/OptiPrint/assets/screenshot_2.jpg",
+            "https://loicdelaunay.github.io/OptiPrint/assets/screenshot_3.jpg",
+            "https://loicdelaunay.github.io/OptiPrint/assets/screenshot_4.jpg"
+        ],
+        "featureList": [
+            "Optimized black and white printing",
+            "Significant ink saving",
+            "One-click printing",
+            "Superior print quality",
+            "Mobile document processing"
+        ],
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+        }
+    }
+    </script>
+
     <script>
         // Translations dictionary
         const translations = {
             en: {
-                pageTitle: "OptiPrint - Optimized Mobile Printing",
+                pageTitle: "OptiPrint - Optimized Mobile Printing App | Save Ink & Paper",
+                metaDescription: "OptiPrint revolutionizes mobile printing with optimized black and white documents. Save ink, save paper, and get crisp prints every time with our smart printing app.",
+                ogTitle: "OptiPrint - Revolutionary Mobile Printing App",
+                ogDescription: "Transform your mobile printing experience with OptiPrint. Get perfect black and white prints while saving ink and paper. Join the closed beta now!",
+                ogUrl: "https://loicdelaunay.github.io/OptiPrint/",
+                twitterTitle: "OptiPrint - Revolutionary Mobile Printing App",
+                twitterDescription: "Transform your mobile printing experience with OptiPrint. Get perfect black and white prints while saving ink and paper. Join the closed beta now!",
+                twitterUrl: "https://loicdelaunay.github.io/OptiPrint/",
                 appName: "OptiPrint",
                 navFeatures: "Features",
                 navScreenshots: "Screenshots",
@@ -309,14 +456,21 @@
                 footerRights: "OptiPrint. All rights reserved.",
                 footerTagline: "Designed with ❤️ for smarter printing.",
                 altLogo: "OptiPrint Logo",
-                altBanner: "OptiPrint banner showing print quality",
-                altScreenshot1: "App Screenshot 1",
-                altScreenshot2: "App Screenshot 2",
-                altScreenshot3: "App Screenshot 3",
-                altScreenshot4: "App Screenshot 4"
+                altBanner: "OptiPrint banner showing print quality optimization",
+                altScreenshot1: "OptiPrint app main interface screenshot",
+                altScreenshot2: "OptiPrint document processing screenshot",
+                altScreenshot3: "OptiPrint print settings screenshot",
+                altScreenshot4: "OptiPrint print preview screenshot"
             },
             fr: {
-                pageTitle: "OptiPrint - Impression Mobile Optimisée",
+                pageTitle: "OptiPrint - Application d'Impression Mobile Optimisée | Économisez Encre et Papier",
+                metaDescription: "OptiPrint révolutionne l'impression mobile avec des documents noir et blanc optimisés. Économisez de l'encre, économisez du papier et obtenez des impressions parfaites à chaque fois.",
+                ogTitle: "OptiPrint - Application d'Impression Mobile Révolutionnaire",
+                ogDescription: "Transformez votre expérience d'impression mobile avec OptiPrint. Obtenez des impressions parfaites en noir et blanc tout en économisant encre et papier. Rejoignez la bêta fermée maintenant !",
+                ogUrl: "https://loicdelaunay.github.io/OptiPrint/",
+                twitterTitle: "OptiPrint - Application d'Impression Mobile Révolutionnaire",
+                twitterDescription: "Transformez votre expérience d'impression mobile avec OptiPrint. Obtenez des impressions parfaites en noir et blanc tout en économisant encre et papier. Rejoignez la bêta fermée maintenant !",
+                twitterUrl: "https://loicdelaunay.github.io/OptiPrint/",
                 appName: "OptiPrint",
                 navFeatures: "Fonctionnalités",
                 navScreenshots: "Captures d'écran",
@@ -344,23 +498,27 @@
                 footerRights: "OptiPrint. Tous droits réservés.",
                 footerTagline: "Conçu avec ❤️ pour une impression plus intelligente.",
                 altLogo: "Logo OptiPrint",
-                altBanner: "Bannière OptiPrint montrant la qualité d'impression",
-                altScreenshot1: "Capture d'écran de l'application 1",
-                altScreenshot2: "Capture d'écran de l'application 2",
-                altScreenshot3: "Capture d'écran de l'application 3",
-                altScreenshot4: "Capture d'écran de l'application 4"
+                altBanner: "Bannière OptiPrint montrant l'optimisation de qualité d'impression",
+                altScreenshot1: "Capture d'écran de l'interface principale d'OptiPrint",
+                altScreenshot2: "Capture d'écran du traitement de document OptiPrint",
+                altScreenshot3: "Capture d'écran des paramètres d'impression OptiPrint",
+                altScreenshot4: "Capture d'écran de l'aperçu d'impression OptiPrint"
             }
         };
 
         // Function to set the language
         function setLanguage(lang) {
-            document.documentElement.lang = lang;
+            document.documentElement.lang = lang === 'en' ? 'en' : 'fr';
+            
+            // Update text content
             document.querySelectorAll('[data-key]').forEach(element => {
                 const key = element.getAttribute('data-key');
                 if (translations[lang] && translations[lang][key]) {
                     element.textContent = translations[lang][key];
                 }
             });
+            
+            // Update alt attributes
             document.querySelectorAll('[data-key-alt]').forEach(element => {
                 const key = element.getAttribute('data-key-alt');
                  if (translations[lang] && translations[lang][key]) {
@@ -368,6 +526,7 @@
                 }
             });
             
+            // Update title
             const titleElement = document.querySelector('title');
             if (titleElement) {
                 const pageTitleKey = titleElement.getAttribute('data-key');
@@ -376,18 +535,105 @@
                 }
             }
 
+            // Update meta tags for SEO
+            const metaDescription = document.querySelector('meta[name="description"]');
+            if (metaDescription && translations[lang] && translations[lang]['metaDescription']) {
+                metaDescription.setAttribute('content', translations[lang]['metaDescription']);
+            }
+
+            // Update Open Graph tags
+            const ogTitle = document.querySelector('meta[property="og:title"]');
+            if (ogTitle && translations[lang] && translations[lang]['ogTitle']) {
+                ogTitle.setAttribute('content', translations[lang]['ogTitle']);
+            }
+
+            const ogDescription = document.querySelector('meta[property="og:description"]');
+            if (ogDescription && translations[lang] && translations[lang]['ogDescription']) {
+                ogDescription.setAttribute('content', translations[lang]['ogDescription']);
+            }
+
+            const ogUrl = document.querySelector('meta[property="og:url"]');
+            if (ogUrl && translations[lang] && translations[lang]['ogUrl']) {
+                ogUrl.setAttribute('content', translations[lang]['ogUrl']);
+            }
+
+            // Update Twitter Card tags
+            const twitterTitle = document.querySelector('meta[property="twitter:title"]');
+            if (twitterTitle && translations[lang] && translations[lang]['twitterTitle']) {
+                twitterTitle.setAttribute('content', translations[lang]['twitterTitle']);
+            }
+
+            const twitterDescription = document.querySelector('meta[property="twitter:description"]');
+            if (twitterDescription && translations[lang] && translations[lang]['twitterDescription']) {
+                twitterDescription.setAttribute('content', translations[lang]['twitterDescription']);
+            }
+
+            const twitterUrl = document.querySelector('meta[property="twitter:url"]');
+            if (twitterUrl && translations[lang] && translations[lang]['twitterUrl']) {
+                twitterUrl.setAttribute('content', translations[lang]['twitterUrl']);
+            }
+
+            // Update language toggle button
+            const languageToggle = document.getElementById('languageToggle');
+            if (languageToggle) {
+                languageToggle.textContent = lang === 'en' ? '🇺🇸' : '🇫🇷';
+                languageToggle.title = lang === 'en' ? 'Switch to French' : 'Passer en anglais';
+            }
+
             localStorage.setItem('optiprint-lang', lang);
-            document.getElementById('languageSelector').value = lang;
+        }
+
+        // Function to toggle theme
+        function toggleTheme() {
+            const body = document.body;
+            const themeToggle = document.getElementById('themeToggle');
+            const isDark = body.classList.toggle('dark-theme');
+            
+            if (isDark) {
+                themeToggle.innerHTML = '<span class="material-icons-outlined">dark_mode</span>';
+                themeToggle.title = 'Switch to light theme';
+                localStorage.setItem('optiprint-theme', 'dark');
+            } else {
+                themeToggle.innerHTML = '<span class="material-icons-outlined">light_mode</span>';
+                themeToggle.title = 'Switch to dark theme';
+                localStorage.setItem('optiprint-theme', 'light');
+            }
+        }
+
+        // Function to initialize theme
+        function initializeTheme() {
+            const savedTheme = localStorage.getItem('optiprint-theme');
+            const themeToggle = document.getElementById('themeToggle');
+            
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-theme');
+                themeToggle.innerHTML = '<span class="material-icons-outlined">dark_mode</span>';
+                themeToggle.title = 'Switch to light theme';
+            } else {
+                themeToggle.innerHTML = '<span class="material-icons-outlined">light_mode</span>';
+                themeToggle.title = 'Switch to dark theme';
+            }
         }
 
         // Initialize language and other scripts
         document.addEventListener('DOMContentLoaded', () => {
             const savedLang = localStorage.getItem('optiprint-lang') || 'en';
+            
+            // Initialize theme first
+            initializeTheme();
+            
+            // Initialize language
             setLanguage(savedLang);
 
-            const languageSelector = document.getElementById('languageSelector');
-            languageSelector.addEventListener('change', (event) => {
-                setLanguage(event.target.value);
+            // Add event listeners
+            const themeToggle = document.getElementById('themeToggle');
+            themeToggle.addEventListener('click', toggleTheme);
+
+            const languageToggle = document.getElementById('languageToggle');
+            languageToggle.addEventListener('click', () => {
+                const currentLang = localStorage.getItem('optiprint-lang') || 'en';
+                const newLang = currentLang === 'en' ? 'fr' : 'en';
+                setLanguage(newLang);
             });
 
             document.getElementById('currentYear').textContent = new Date().getFullYear();

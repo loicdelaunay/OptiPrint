@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://loicdelaunay.github.io/OptiPrint/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Disallow common bot traps
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /private/
+
+# Allow important pages
+Allow: /index.html
+Allow: /assets/
+Allow: /*.css
+Allow: /*.js
+Allow: /*.jpg
+Allow: /*.png
+Allow: /*.svg

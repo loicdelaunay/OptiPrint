@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>https://loicdelaunay.github.io/OptiPrint/</loc>
+        <lastmod>2024-12-01</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://loicdelaunay.github.io/OptiPrint/" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://loicdelaunay.github.io/OptiPrint/" />
+    </url>
+    <url>
+        <loc>https://loicdelaunay.github.io/OptiPrint/#features</loc>
+        <lastmod>2024-12-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://loicdelaunay.github.io/OptiPrint/#features" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://loicdelaunay.github.io/OptiPrint/#features" />
+    </url>
+    <url>
+        <loc>https://loicdelaunay.github.io/OptiPrint/#screenshots</loc>
+        <lastmod>2024-12-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://loicdelaunay.github.io/OptiPrint/#screenshots" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://loicdelaunay.github.io/OptiPrint/#screenshots" />
+    </url>
+    <url>
+        <loc>https://loicdelaunay.github.io/OptiPrint/#join</loc>
+        <lastmod>2024-12-01</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://loicdelaunay.github.io/OptiPrint/#join" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://loicdelaunay.github.io/OptiPrint/#join" />
+    </url>
+</urlset>
