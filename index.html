@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en"> <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-key="pageTitle">OptiPrint - Optimized Mobile Printing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3e8ff; /* Light purple background, harmonizing with violet */
+        }
+        .hero-bg {
+            background-color: #5b21b6; /* Violet-700 for hero, can be adjusted */
+        }
+        .btn-primary {
+            background-color: #7c3aed; /* Violet-600 */
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #6d28d9; /* Violet-700 */
+        }
+        .btn-secondary {
+            background-color: #a78bfa; /* Violet-400 */
+            color: #3730a3; /* Indigo-800 for text contrast */
+            transition: background-color 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background-color: #8b5cf6; /* Violet-500 */
+        }
+        .card {
+            background-color: white;
+            border-radius: 16px; /* More rounded for MD3 expressive */
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .section-title {
+            color: #4c1d95; /* Violet-800 */
+        }
+        .link-custom {
+            color: #7c3aed; /* Violet-600 */
+            font-weight: 500;
+        }
+        .link-custom:hover {
+            color: #5b21b6; /* Violet-700 */
+            text-decoration: underline;
+        }
+        .expressive-gradient-text {
+            background: linear-gradient(to right, #7c3aed, #c026d3); /* Violet to Fuchsia */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        #languageSelector {
+            background-color: #6d28d9;
+            color: white;
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.375rem;
+            border: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        #languageSelector:hover {
+            background-color: #5b21b6;
+        }
+        #languageSelector option {
+            background-color: white;
+            color: #3730a3;
+        }
+
+        /* Carousel Styles */
+        .carousel-container {
+            max-width: 800px; /* Adjust as needed */
+            margin: auto;
+            position: relative;
+            overflow: hidden; /* Crucial for containing slides */
+            border-radius: 16px; /* Match card style */
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .carousel-slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out; /* Smooth slide transition */
+        }
+        .carousel-slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+        .carousel-slide img {
+            width: 100%;
+            height: auto; /* Maintain aspect ratio, adjust if screenshots are fixed height */
+            max-height: 450px; /* Example max height */
+            object-fit: contain; /* Or 'cover', depending on desired effect */
+            display: block;
+            background-color: #e9d5ff; /* Placeholder bg for images */
+        }
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(76, 29, 149, 0.7); /* Violet-800 with transparency */
+            color: white;
+            border: none;
+            padding: 0.75rem;
+            cursor: pointer;
+            z-index: 10;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+        .carousel-button:hover {
+            background-color: rgba(91, 33, 182, 0.9); /* Violet-700 with more opacity */
+        }
+        .carousel-button.prev {
+            left: 1rem;
+        }
+        .carousel-button.next {
+            right: 1rem;
+        }
+         .carousel-indicators {
+            text-align: center;
+            margin-top: 1rem;
+        }
+        .carousel-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            margin: 0 5px;
+            background-color: #a78bfa; /* Violet-400 */
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .carousel-indicator.active {
+            background-color: #5b21b6; /* Violet-700 */
+        }
+
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-violet-700 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="assets/logo.jpg" alt="OptiPrint Logo" class="h-10 w-10 mr-3 rounded-full shadow-md" onerror="this.src='https://placehold.co/40x40/7c3aed/ffffff?text=O'; this.onerror=null;" data-key-alt="altLogo">
+                <h1 class="text-2xl font-bold text-white" data-key="appName">OptiPrint</h1>
+            </div>
+            <nav class="flex items-center">
+                <a href="#features" class="text-violet-100 hover:text-white px-3 py-2 rounded-md text-sm font-medium" data-key="navFeatures">Features</a>
+                <a href="#screenshots" class="text-violet-100 hover:text-white px-3 py-2 rounded-md text-sm font-medium" data-key="navScreenshots">Screenshots</a>
+                <a href="#join" class="ml-4 btn-primary hover:bg-violet-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105" data-key="navJoinDownload">
+                    Join Beta
+                </a>
+                <div class="ml-4">
+                    <select id="languageSelector" aria-label="Select language">
+                        <option value="en">English</option>
+                        <option value="fr">Français</option>
+                    </select>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero-bg text-white py-12 md:py-20">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">
+                <span data-key="heroTitle1">OptiPrint: Mobile printing </span> <span class="expressive-gradient-text bg-clip-text text-transparent bg-gradient-to-r from-purple-300 via-pink-300 to-orange-300" data-key="heroTitle2">reinvented</span>.
+            </h2>
+            <p class="text-lg md:text-xl mb-8 text-violet-200 max-w-2xl mx-auto" data-key="heroSubtitle">
+                Effortlessly print documents in optimized black and white from your mobile. Save ink, save paper!
+            </p>
+            <a href="#join" class="btn-primary text-lg font-semibold py-3 px-8 rounded-lg shadow-xl transition duration-300 ease-in-out transform hover:scale-105" data-key="heroCTA">
+                Discover OptiPrint
+            </a>
+        </div>
+    </section>
+
+    <section class="py-12 bg-violet-50">
+        <div class="container mx-auto px-6">
+            <h3 class="text-3xl font-bold text-center section-title mb-10" data-key="bannerTitle">Visualize the OptiPrint Difference</h3>
+            <img src="assets/ban_1280x640.jpg" alt="OptiPrint banner showing print quality" class="rounded-xl shadow-2xl mx-auto max-w-4xl w-full" onerror="this.src='https://placehold.co/1280x640/e9d5ff/4c1d95?text=OptiPrint+Banner'; this.onerror=null;" data-key-alt="altBanner">
+            <p class="text-center text-violet-700 mt-4 text-sm italic" data-key="bannerCaption">Perfect black & white printing in one click – no more wasted ink or unreadable pages.</p>
+        </div>
+    </section>
+
+    <section id="screenshots" class="py-12 md:py-20">
+        <div class="container mx-auto px-6">
+            <h3 class="text-3xl font-bold text-center section-title mb-12" data-key="screenshotsTitle">Discover the App in Pictures</h3>
+            <div class="carousel-container">
+                <div class="carousel-slides">
+                    <div class="carousel-slide">
+                        <img src="assets/screenshot_1.jpg" alt="App Screenshot 1" data-key-alt="altScreenshot1" onerror="this.src='https://placehold.co/800x450/c4b5fd/4c1d95?text=App+Screenshot+1'; this.onerror=null;">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="assets/screenshot_2.jpg" alt="App Screenshot 2" data-key-alt="altScreenshot2" onerror="this.src='https://placehold.co/800x450/a78bfa/3730a3?text=App+Screenshot+2'; this.onerror=null;">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="assets/screenshot_3.jpg" alt="App Screenshot 3" data-key-alt="altScreenshot3" onerror="this.src='https://placehold.co/800x450/8b5cf6/ffffff?text=App+Screenshot+3'; this.onerror=null;">
+                    </div>
+                     <div class="carousel-slide">
+                        <img src="assets/screenshot_4.jpg" alt="App Screenshot 4" data-key-alt="altScreenshot4" onerror="this.src='https://placehold.co/800x450/7c3aed/ffffff?text=App+Screenshot+4'; this.onerror=null;">
+                    </div>
+                </div>
+                <button class="carousel-button prev" aria-label="Previous slide">
+                    <span class="material-icons-outlined">arrow_back_ios</span>
+                </button>
+                <button class="carousel-button next" aria-label="Next slide">
+                    <span class="material-icons-outlined">arrow_forward_ios</span>
+                </button>
+            </div>
+            <div class="carousel-indicators">
+                </div>
+        </div>
+    </section>
+
+    <section id="features" class="py-12 md:py-20 bg-violet-50"> <div class="container mx-auto px-6">
+            <h3 class="text-3xl font-bold text-center section-title mb-12" data-key="featuresTitle">Why Choose OptiPrint?</h3>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div class="card p-8 transform hover:scale-105 transition-transform duration-300">
+                    <span class="material-icons-outlined text-5xl text-violet-600 mb-4">quality</span>
+                    <h4 class="text-xl font-semibold text-violet-800 mb-2" data-key="feature1Title">Superior Quality</h4>
+                    <p class="text-gray-600" data-key="feature1Desc">Get crisp, readable black and white prints every time.</p>
+                </div>
+                <div class="card p-8 transform hover:scale-105 transition-transform duration-300">
+                    <span class="material-icons-outlined text-5xl text-violet-600 mb-4">opacity</span>
+                    <h4 class="text-xl font-semibold text-violet-800 mb-2" data-key="feature2Title">Ink Saving</h4>
+                    <p class="text-gray-600" data-key="feature2Desc">Significantly reduce your ink consumption with our smart optimization.</p>
+                </div>
+                <div class="card p-8 transform hover:scale-105 transition-transform duration-300">
+                    <span class="material-icons-outlined text-5xl text-violet-600 mb-4">ads_click</span>
+                    <h4 class="text-xl font-semibold text-violet-800 mb-2" data-key="feature3Title">Simplified Use</h4>
+                    <p class="text-gray-600" data-key="feature3Desc">Print in a single click. It's that simple!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="join" class="py-12 md:py-20 bg-violet-100">
+        <div class="container mx-auto px-6">
+            <h3 class="text-3xl font-bold text-center section-title mb-12" data-key="joinTitle">Join the OptiPrint Adventure!</h3>
+            <div class="max-w-2xl mx-auto">
+                <div class="card p-8">
+                    <h4 class="text-2xl font-semibold text-violet-800 mb-4" data-key="joinTesterTitle">Join the Closed Beta:</h4>
+                    <ol class="list-decimal list-inside space-y-4 text-gray-700">
+                        <li data-key="joinTesterStep1">
+                            <strong>Join our tester group:</strong><br>
+                            <a href="https://groups.google.com/g/optiprint-testers" target="_blank" rel="noopener noreferrer" class="link-custom">
+                                groups.google.com/g/optiprint-testers
+                            </a>
+                        </li>
+                        <li data-key="joinTesterStep2">
+                            <strong>Access the test version:</strong><br>
+                            <a href="https://play.google.com/apps/testing/com.loicdelaunay.optiprint" target="_blank" rel="noopener noreferrer" class="link-custom">
+                                play.google.com/apps/testing/com.loicdelaunay.optiprint
+                            </a>
+                        </li>
+                        <li data-key="joinTesterStep3">
+                            <strong>Download from Play Store:</strong><br>
+                            <a href="https://play.google.com/store/apps/details?id=com.loicdelaunay.optiprint" target="_blank" rel="noopener noreferrer" class="inline-block btn-primary text-base font-semibold py-2 px-6 rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105 mt-2">
+                                <span class="material-icons-outlined inline-block align-middle mr-2 text-sm">shop</span>
+                                <span data-key="joinDownloadLink">View on Play Store</span>
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-violet-800 text-violet-200 py-8 text-center">
+        <div class="container mx-auto px-6">
+            <p>&copy; <span id="currentYear"></span> <span data-key="footerRights">OptiPrint. All rights reserved.</span></p>
+            <p class="text-sm mt-1" data-key="footerTagline">Designed with <span class="text-red-400">&hearts;</span> for smarter printing.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Translations dictionary
+        const translations = {
+            en: {
+                pageTitle: "OptiPrint - Optimized Mobile Printing",
+                appName: "OptiPrint",
+                navFeatures: "Features",
+                navScreenshots: "Screenshots",
+                navJoinDownload: "Join Beta",
+                heroTitle1: "OptiPrint: Mobile printing ",
+                heroTitle2: "reinvented",
+                heroSubtitle: "Effortlessly print documents in optimized black and white from your mobile. Save ink, save paper!",
+                heroCTA: "Discover OptiPrint",
+                bannerTitle: "Visualize the OptiPrint Difference",
+                bannerCaption: "Perfect black & white printing in one click – no more wasted ink or unreadable pages.",
+                screenshotsTitle: "Discover the App in Pictures",
+                featuresTitle: "Why Choose OptiPrint?",
+                feature1Title: "Superior Quality",
+                feature1Desc: "Get crisp, readable black and white prints every time.",
+                feature2Title: "Ink Saving",
+                feature2Desc: "Significantly reduce your ink consumption with our smart optimization.",
+                feature3Title: "Simplified Use",
+                feature3Desc: "Print in a single click. It's that simple!",
+                joinTitle: "Join the OptiPrint Adventure!",
+                joinTesterTitle: "Join the Closed Beta:",
+                joinTesterStep1: "Join our tester group:",
+                joinTesterStep2: "Access the test version:",
+                joinTesterStep3: "Download from Play Store:",
+                joinDownloadLink: "View on Play Store",
+                footerRights: "OptiPrint. All rights reserved.",
+                footerTagline: "Designed with ❤️ for smarter printing.",
+                altLogo: "OptiPrint Logo",
+                altBanner: "OptiPrint banner showing print quality",
+                altScreenshot1: "App Screenshot 1",
+                altScreenshot2: "App Screenshot 2",
+                altScreenshot3: "App Screenshot 3",
+                altScreenshot4: "App Screenshot 4"
+            },
+            fr: {
+                pageTitle: "OptiPrint - Impression Mobile Optimisée",
+                appName: "OptiPrint",
+                navFeatures: "Fonctionnalités",
+                navScreenshots: "Captures d'écran",
+                navJoinDownload: "Rejoindre Bêta",
+                heroTitle1: "OptiPrint: L'impression mobile ",
+                heroTitle2: "réinventée",
+                heroSubtitle: "Imprimez sans effort vos documents en noir et blanc optimisé depuis votre mobile. Économisez de l'encre, économisez du papier !",
+                heroCTA: "Découvrir OptiPrint",
+                bannerTitle: "Visualisez la différence OptiPrint",
+                bannerCaption: "Impression parfaite en noir & blanc en un clic – fini l'encre gaspillée ou les pages illisibles.",
+                screenshotsTitle: "Découvrez l'application en images",
+                featuresTitle: "Pourquoi choisir OptiPrint ?",
+                feature1Title: "Qualité Supérieure",
+                feature1Desc: "Obtenez des impressions en noir et blanc nettes et lisibles à chaque fois.",
+                feature2Title: "Économie d'Encre",
+                feature2Desc: "Réduisez significativement votre consommation d'encre grâce à notre optimisation intelligente.",
+                feature3Title: "Utilisation Simplifiée",
+                feature3Desc: "Imprimez en un seul clic. C'est aussi simple que ça !",
+                joinTitle: "Rejoignez l'aventure OptiPrint !",
+                joinTesterTitle: "Rejoignez la Bêta Fermée :",
+                joinTesterStep1: "Rejoignez notre groupe de testeurs :",
+                joinTesterStep2: "Accédez à la version test :",
+                joinTesterStep3: "Téléchargez depuis le Play Store :",
+                joinDownloadLink: "Voir sur le Play Store",
+                footerRights: "OptiPrint. Tous droits réservés.",
+                footerTagline: "Conçu avec ❤️ pour une impression plus intelligente.",
+                altLogo: "Logo OptiPrint",
+                altBanner: "Bannière OptiPrint montrant la qualité d'impression",
+                altScreenshot1: "Capture d'écran de l'application 1",
+                altScreenshot2: "Capture d'écran de l'application 2",
+                altScreenshot3: "Capture d'écran de l'application 3",
+                altScreenshot4: "Capture d'écran de l'application 4"
+            }
+        };
+
+        // Function to set the language
+        function setLanguage(lang) {
+            document.documentElement.lang = lang;
+            document.querySelectorAll('[data-key]').forEach(element => {
+                const key = element.getAttribute('data-key');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            document.querySelectorAll('[data-key-alt]').forEach(element => {
+                const key = element.getAttribute('data-key-alt');
+                 if (translations[lang] && translations[lang][key]) {
+                    element.setAttribute('alt', translations[lang][key]);
+                }
+            });
+            
+            const titleElement = document.querySelector('title');
+            if (titleElement) {
+                const pageTitleKey = titleElement.getAttribute('data-key');
+                if (pageTitleKey && translations[lang] && translations[lang][pageTitleKey]) {
+                    titleElement.textContent = translations[lang][pageTitleKey];
+                }
+            }
+
+            localStorage.setItem('optiprint-lang', lang);
+            document.getElementById('languageSelector').value = lang;
+        }
+
+        // Initialize language and other scripts
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('optiprint-lang') || 'en';
+            setLanguage(savedLang);
+
+            const languageSelector = document.getElementById('languageSelector');
+            languageSelector.addEventListener('change', (event) => {
+                setLanguage(event.target.value);
+            });
+
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Carousel Logic
+            const slidesContainer = document.querySelector('.carousel-slides');
+            const slides = Array.from(document.querySelectorAll('.carousel-slide'));
+            const prevButton = document.querySelector('.carousel-button.prev');
+            const nextButton = document.querySelector('.carousel-button.next');
+            const indicatorsContainer = document.querySelector('.carousel-indicators');
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+
+            if (slidesContainer && totalSlides > 0) {
+                // Create indicators
+                slides.forEach((_, index) => {
+                    const indicator = document.createElement('span');
+                    indicator.classList.add('carousel-indicator');
+                    indicator.addEventListener('click', () => goToSlide(index));
+                    indicatorsContainer.appendChild(indicator);
+                });
+                const indicators = Array.from(indicatorsContainer.children);
+
+                function updateIndicators() {
+                    indicators.forEach((indicator, index) => {
+                        if (index === currentSlide) {
+                            indicator.classList.add('active');
+                        } else {
+                            indicator.classList.remove('active');
+                        }
+                    });
+                }
+
+                function goToSlide(slideIndex) {
+                    if (slideIndex < 0) {
+                        currentSlide = totalSlides - 1;
+                    } else if (slideIndex >= totalSlides) {
+                        currentSlide = 0;
+                    } else {
+                        currentSlide = slideIndex;
+                    }
+                    slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+                    updateIndicators();
+                }
+
+                prevButton.addEventListener('click', () => {
+                    goToSlide(currentSlide - 1);
+                });
+
+                nextButton.addEventListener('click', () => {
+                    goToSlide(currentSlide + 1);
+                });
+                
+                // Initialize first slide and indicators
+                goToSlide(0); 
+            }
+        });
+    </script>
+
+</body>
+</html>
